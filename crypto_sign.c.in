@@ -1,0 +1,60 @@
+
+#ifdef SUPERCOP
+#include "crypto_sign.h"
+#else
+#include "api.h"
+#endif
+
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
+#include "vhdsa_@PARAM_L@.h"
+#include "instances.h"
+#include <stdio.h>
+#include <string.h>
+
+
+void CRYPT_setup_DSA(CRYPT_state* crypt_state) {
+  /* 初始化VHDSA参数 */
+  crypt_state->params = vhdsa_get_paramset(VHDSA_@PARAM@);
+}
+
+int crypto_sign_keypair(unsigned char* pk, unsigned char* sk, CRYPT_state* crypt_state) {
+  int ret = vhdsa_@PARAM_L@_keygen(pk, sk);
+  /* 将公钥和私钥保存到全局变量 */
+  memcpy(crypt_state->pk, pk, CRYPTO_PUBLICKEYBYTES);
+  memcpy(crypt_state->sk, sk, CRYPTO_SECRETKEYBYTES);
+  return ret;
+}
+
+int crypto_sign(unsigned char* sm, unsigned long long* smlen, const unsigned char* m,
+                unsigned long long mlen, const unsigned char* sk, CRYPT_state* crypt_state) {
+  size_t signature_len;
+  
+  *smlen = mlen + VHDSA_@PARAM@_SIGNATURE_SIZE;
+  memmove(sm, m, mlen);
+
+  signature_len = VHDSA_@PARAM@_SIGNATURE_SIZE;
+  return vhdsa_@PARAM_L@_sign(sk, sm, mlen, sm + mlen, &signature_len, crypt_state);
+}
+
+int crypto_sign_open(unsigned char* m, unsigned long long* mlen, const unsigned char* sm,
+                     unsigned long long smlen, const unsigned char* pk) {
+  unsigned long long m_length;
+  
+  if (smlen < VHDSA_@PARAM@_SIGNATURE_SIZE) {
+    /* signature too short */    
+    return -1;
+  }
+  m_length = smlen - VHDSA_@PARAM@_SIGNATURE_SIZE;
+  if (vhdsa_@PARAM_L@_verify(pk, sm, m_length, sm + m_length, VHDSA_@PARAM@_SIGNATURE_SIZE)) {
+    return -1;
+  }
+
+  *mlen = m_length;
+  memmove(m, sm, m_length);
+  return 0;
+}
+
+/* vim: ft=c */

@@ -1,0 +1,23 @@
+#ifndef CRYPTO_SIGN_@PARAM@_H
+#define CRYPTO_SIGN_@PARAM@_H
+
+#include "vhdsa_@PARAM_L@.h"
+
+
+#define CRYPTO_SECRETKEYBYTES @SK_SIZE@
+#define CRYPTO_PUBLICKEYBYTES @PK_SIZE@
+#define CRYPTO_BYTES @SIG_SIZE@
+#define CRYPTO_ALGNAME "vhdsa_@PARAM_L@"
+
+
+
+void CRYPT_setup_DSA(CRYPT_state* crypt_state);
+int crypto_sign_keypair(unsigned char* pk, unsigned char* sk, CRYPT_state* crypt_state);
+int crypto_sign(unsigned char* sm, unsigned long long* smlen, const unsigned char* m,
+                unsigned long long mlen, const unsigned char* sk, CRYPT_state* crypt_state);
+int crypto_sign_open(unsigned char* m, unsigned long long* mlen, const unsigned char* sm,
+                     unsigned long long smlen, const unsigned char* pk);
+
+#endif
+
+/* vim: ft=c */
