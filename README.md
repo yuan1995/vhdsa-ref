@@ -40,5 +40,3 @@ The author and affiliation of this project:
 - [GitHub Repository](https://github.com/yuan1995/vhdsa-ref)
 
 ## 许可证 License
-
-许可证类型待项目负责人确认后补充。
