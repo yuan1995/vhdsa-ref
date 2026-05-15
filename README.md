@@ -7,7 +7,7 @@
 - [功能特性 Features](docs/features.md)
 - [项目结构 Project Structure](docs/project-structure.md)
   - [项目文件 Project Files](docs/project-structure.md#项目文件-project-files)
-  - [附加文件 Additional Files](docs/project-structure.md#附加文件-additional-files)
+  - [附加文件 Additional Files](docs/additional-files.md)
 - [使用方法 Getting Started](docs/getting-started.md)
   - [安装方法 Installation](docs/getting-started.md#安装方法-installation)
   - [编译步骤 Build Steps](docs/getting-started.md#编译步骤-build-steps)
