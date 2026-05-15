@@ -18,6 +18,6 @@
 
 项目说明：本项目为 VHDSA 抗量子数字签名算法的 C 语言参考实现，包含密钥生成、签名、验签、参数集配置、功能测试和性能测试代码，可用于算法验证、课程实验、论文实验复现和工程移植研究。
 
-开源地址（Repository URL）：待上传后填写。
+开源地址（Repository URL）：https://github.com/yuan1995/vhdsa-ref
 
 许可证（License）：待项目负责人确认后补充。
