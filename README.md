@@ -25,13 +25,9 @@ The author and affiliation of this project:
 
 ```text
 项目名称（Project Name）: 基于 AES 对称加密的抗量子签名
-英文名称（English Name）: vhdsa-ref
-项目作者（Author）: Xiaowei Yuan, Ni Li, Chao Qi, Junzuo Lai, Yi Liu 
-项目负责人（Maintainer）: Xiaowei Yuan
+英文名称（English Name）: vhdsa
+项目作者（Author）: Xiaowei Yuan, Ni Li, Chao Qi, Junzuo Lai, Yi Liu
 作者单位（Affiliation）: 暨南大学网络空间安全学院(College of Cyber Security,Jinan University)
-指导教师（Supervisor）: Junzuo Lai, Yi Liu
-项目时间（Project Period）: 2025 年 5 月至今
-开源地址（Repository URL）: https://github.com/yuan1995/vhdsa-ref
 ```
 
 ## 友情链接 Related Links
