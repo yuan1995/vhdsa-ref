@@ -38,7 +38,6 @@ The author and affiliation of this project:
 ## 友情链接 Related Links
 
 - [GitHub Repository](https://github.com/yuan1995/vhdsa-ref)
-- [Project Statement](PROJECT_STATEMENT.md)
 
 ## 许可证 License
 
